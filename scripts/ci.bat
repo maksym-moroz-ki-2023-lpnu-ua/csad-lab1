@@ -11,7 +11,7 @@ if not exist .venv (
 call .venv\Scripts\activate.bat
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
-pytest tests/test_app.py
+python -m pytest tests/test_app.py
 if errorlevel 1 exit /b %errorlevel%
 python src/app.py
 exit /b %errorlevel%
