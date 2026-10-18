@@ -11,5 +11,5 @@ fi
 source .venv/bin/activate
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
-pytest tests/test_app.py
+python -m pytest tests/test_app.py
 python src/app.py
