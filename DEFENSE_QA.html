@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Підготовка до захисту лабораторної роботи №1 - Мороз М.Т.</title>
+    <style>
+    
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@page {
+    size: A4;
+    margin: 18mm 15mm 20mm 15mm;
+    @bottom-right {
+        content: counter(page);
+    }
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 10pt;
+    line-height: 1.55;
+    color: #1e293b;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+    color: #0f172a;
+    font-weight: 700;
+    page-break-after: avoid;
+    break-after: avoid;
+}
+
+h1 {
+    font-size: 20pt;
+    border-bottom: 3px solid #2563eb;
+    padding-bottom: 6px;
+    margin-top: 0;
+    margin-bottom: 12px;
+    color: #1e3a8a;
+}
+
+h2 {
+    font-size: 14pt;
+    border-bottom: 1.5px solid #cbd5e1;
+    padding-bottom: 4px;
+    margin-top: 18pt;
+    margin-bottom: 8pt;
+    color: #1e40af;
+}
+
+h3 {
+    font-size: 11.5pt;
+    margin-top: 14pt;
+    margin-bottom: 6pt;
+    color: #0369a1;
+}
+
+h4 {
+    font-size: 10.5pt;
+    margin-top: 10pt;
+    margin-bottom: 4pt;
+    color: #334155;
+}
+
+p, ul, ol {
+    margin-top: 0;
+    margin-bottom: 8pt;
+}
+
+li {
+    margin-bottom: 3pt;
+}
+
+code {
+    font-family: 'JetBrains Mono', Consolas, Monaco, monospace;
+    font-size: 8.8pt;
+    background-color: #f1f5f9;
+    color: #0f172a;
+    padding: 1.5px 4.5px;
+    border-radius: 4px;
+    border: 1px solid #e2e8f0;
+}
+
+pre {
+    font-family: 'JetBrains Mono', Consolas, Monaco, monospace;
+    font-size: 8.5pt;
+    background-color: #0f172a;
+    color: #f8fafc;
+    padding: 10px 12px;
+    border-radius: 6px;
+    overflow-x: auto;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    margin-bottom: 10pt;
+    line-height: 1.4;
+}
+
+pre code {
+    background-color: transparent;
+    color: inherit;
+    padding: 0;
+    border: none;
+    font-size: inherit;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 12pt;
+    font-size: 9pt;
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+
+th, td {
+    border: 1px solid #cbd5e1;
+    padding: 6px 9px;
+    text-align: left;
+    vertical-align: top;
+}
+
+th {
+    background-color: #f1f5f9;
+    color: #0f172a;
+    font-weight: 600;
+}
+
+tr:nth-child(even) td {
+    background-color: #f8fafc;
+}
+
+blockquote {
+    margin: 8pt 0;
+    padding: 6pt 12pt;
+    border-left: 4px solid #3b82f6;
+    background-color: #eff6ff;
+    color: #1e3a8a;
+    border-radius: 0 4px 4px 0;
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+
+blockquote p {
+    margin: 0;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #e2e8f0;
+    margin: 16pt 0;
+}
+
+a {
+    color: #2563eb;
+    text-decoration: none;
+}
+
+.badge {
+    display: inline-block;
+    padding: 2px 6px;
+    font-size: 8pt;
+    font-weight: 600;
+    border-radius: 4px;
+    background-color: #e0f2fe;
+    color: #0369a1;
+}
+
+    </style>
+</head>
+<body>
+    <h1 id="no1-14">Захист лабораторної роботи №1 (Варіант 14)</h1>
+<p><strong>Студент:</strong> Мороз Максим Тарасович | <strong>Група:</strong> КІ-404 | <strong>Варіант:</strong> 14<br />
+<strong>Стек варіанта 14:</strong> Python 3.11+, віртуальне оточення <code>venv</code>, фреймворк <code>pytest</code>, скрипти запуску <code>ci.bat</code> / <code>ci.sh</code>, CI/CD GitHub Actions (Windows, Linux, macOS).<br />
+<strong>Репозиторій:</strong> <a href="https://github.com/maksym-moroz-ki-2023-lpnu-ua/csad-lab1">csad-lab1</a> | <strong>PR:</strong> <a href="https://github.com/maksym-moroz-ki-2023-lpnu-ua/csad-lab1/pull/1">#1 lab1/finish</a></p>
+<hr />
+<h2 id="1-14">1. Суть завдання варіанта 14</h2>
+<p><strong>Що вимагалося зробити:</strong>
+Створити спеціалізованого AI-агента для ролі <strong>Build Engineer</strong>, який автоматично генерує та налаштовує:
+1. Python-проєкт (<code>src/app.py</code> з функціями привітання та додавання).
+2. Ізольоване середовище <code>venv</code> та залежності <code>requirements.txt</code> (<code>pytest&gt;=8.0.0</code>).
+3. Модульні тести <code>tests/test_app.py</code>.
+4. Кросплатформні скрипти складання: <code>scripts/ci.bat</code> (Windows) та <code>scripts/ci.sh</code> (Linux/macOS).
+5. CI-пайплайн GitHub Actions (<code>.github/workflows/ci.yml</code>) із матрицею з 3 ОС, який запускає <strong>виключно</strong> ці скрипти.</p>
+<hr />
+<h2 id="2-ai-">2. Структура AI-агента (Архітектура)</h2>
+<h3 id="_1">Які файли реалізують агента?</h3>
+<ul>
+<li><strong>Маніфест (<code>.github/agents/build-engineer.agent.md</code>):</strong> Описує роль Build Engineer, правила безпеки (заборонено видаляти файли, заборонено <code>force push</code>, заборонено секрети в Git) та критерій готовності (всі тести зелені на 3 ОС).</li>
+<li><strong>3 Навички (<code>.github/skills/</code>):</strong></li>
+<li><code>project-scaffold</code>: генерація <code>src/app.py</code> та <code>.gitignore</code>.</li>
+<li><code>build-and-test</code>: налаштування <code>venv</code>, <code>requirements.txt</code>, тестів <code>test_app.py</code> та скриптів <code>ci.bat</code>/<code>ci.sh</code>.</li>
+<li><code>github-actions</code>: створення workflow <code>.github/workflows/ci.yml</code>.</li>
+<li><strong>Команди (<code>.github/prompts/</code>):</strong></li>
+<li><code>git-init</code> — ініціалізація Git та <code>.gitignore</code>.</li>
+<li><code>create-project</code> — виклик скіла <code>project-scaffold</code>.</li>
+<li><code>create-build</code> — виклик скіла <code>build-and-test</code>.</li>
+<li><code>create-actions</code> — виклик скіла <code>github-actions</code>.</li>
+<li><code>check</code> — <strong>неруйнівна</strong> перевірка структури, YAML і запуск тестів (нічого не змінює).</li>
+<li><code>init</code> — <strong>оркестратор</strong>, який запускає команди по черзі за принципом <strong>Fail-Fast</strong>.</li>
+</ul>
+<h3 id="fail-fast">Що таке Fail-Fast в оркестраторі?</h3>
+<p>Якщо будь-який крок завершується з помилкою (код $\ne 0$), оркестратор <strong>негайно перериває процес</strong> і не виконує наступні дії. Помилка не приховується.</p>
+<hr />
+<h2 id="3-cibat-cish">3. Скрипти збірки: <code>ci.bat</code> та <code>ci.sh</code></h2>
+<h3 id="ciyml">Чому в <code>ci.yml</code> викликаються тільки скрипти, а не команди напряму?</h3>
+<p>Вимога методички: <strong>локальна відтворюваність</strong> та <strong>єдине джерело істини</strong> (Single Source of Truth). На комп'ютері розробника і на сервері GitHub Actions запускається один і той самий файл. Зміна логіки збірки робиться в одному місці — у скрипті.</p>
+<h3 id="scriptscibat-windows">Як працює <code>scripts/ci.bat</code> (Windows)?</h3>
+<div class="codehilite"><pre><span></span><code><span class="p">@</span><span class="k">echo</span> off
+<span class="k">setlocal</span>
+<span class="k">set</span> <span class="s2">"ROOT_DIR=</span><span class="nv">%~dp0</span><span class="s2">.."</span>
+<span class="k">cd</span> /d <span class="s2">"</span><span class="nv">%ROOT_DIR%</span><span class="s2">"</span>
+<span class="k">if</span> <span class="k">not</span> <span class="k">exist</span> .venv <span class="p">(</span> python -m venv .venv <span class="p">)</span>
+<span class="k">call</span> .venv\Scripts\activate.bat
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+python -m pytest tests/test_app.py
+<span class="k">if</span> <span class="k">errorlevel</span> <span class="mi">1</span> <span class="k">exit</span> /b <span class="nv">%errorlevel%</span>
+python src/app.py
+<span class="k">exit</span> /b <span class="nv">%errorlevel%</span>
+</code></pre></div>
+
+<ul>
+<li><code>%~dp0..</code> — визначає кореневу папку проєкту відносно розташування скрипта.</li>
+<li><code>cd /d</code> — перехід у корінь проєкту (прапорець <code>/d</code> дозволяє змінювати диск).</li>
+<li><code>call .venv\Scripts\activate.bat</code> — <strong>обов'язково з <code>call</code></strong>, інакше CMD завершить роботу після активації venv і не виконає запуск тестів.</li>
+<li><code>if errorlevel 1 exit /b %errorlevel%</code> — перевірка коду повернення pytest. Якщо тест впав — аварійний вихід, програма <code>src/app.py</code> не запускається (Fail-Fast).</li>
+</ul>
+<h3 id="scriptscish-linuxmacos">Як працює <code>scripts/ci.sh</code> (Linux/macOS)?</h3>
+<div class="codehilite"><pre><span></span><code><span class="ch">#!/usr/bin/env bash</span>
+<span class="nb">set</span><span class="w"> </span>-euo<span class="w"> </span>pipefail
+<span class="nv">ROOT_DIR</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span><span class="nb">cd</span><span class="w"> </span><span class="s2">"</span><span class="k">$(</span>dirname<span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">BASH_SOURCE</span><span class="p">[0]</span><span class="si">}</span><span class="s2">"</span><span class="k">)</span><span class="s2">/.."</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">pwd</span><span class="k">)</span><span class="s2">"</span>
+<span class="nb">cd</span><span class="w"> </span><span class="s2">"</span><span class="nv">$ROOT_DIR</span><span class="s2">"</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>!<span class="w"> </span>-d<span class="w"> </span>.venv<span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span><span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv<span class="p">;</span><span class="w"> </span><span class="k">fi</span>
+<span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip
+python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+python<span class="w"> </span>-m<span class="w"> </span>pytest<span class="w"> </span>tests/test_app.py
+python<span class="w"> </span>src/app.py
+</code></pre></div>
+
+<ul>
+<li><code>set -euo pipefail</code> — режим суворої безпеки:</li>
+<li><code>-e</code> — вихід при будь-якій помилці (Fail-Fast).</li>
+<li><code>-u</code> — вихід при зверненні до неоголошеної змінної.</li>
+<li><code>-o pipefail</code> — фіксація помилки всередині будь-якої ланки пайплайну.</li>
+</ul>
+<hr />
+<h2 id="4-troubleshooting">4. Дві реальні проблеми та їх фікси (Troubleshooting)</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Проблема на GitHub Actions</th>
+<th style="text-align: left;">Причина</th>
+<th style="text-align: left;">Як виправлено</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>1. <code>Permission denied</code> (exit code 126)</strong> на Linux/macOS при виклику <code>ci.sh</code></td>
+<td style="text-align: left;">Файл створювався у Windows (NTFS), тому Git зберіг його з правами <code>100644</code> (не виконуваний).</td>
+<td style="text-align: left;">Встановлено біт виконання в індексі Git:<br><code>git update-index --chmod=+x scripts/ci.sh</code><br>Права стали <code>100755</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>2. <code>ModuleNotFoundError: No module named 'src'</code></strong> при виконанні тестів</td>
+<td style="text-align: left;">Команда <code>pytest tests/test_app.py</code> не додавала корінь проєкту в <code>sys.path</code>.</td>
+<td style="text-align: left;">Запуск змінено на виконання модуля Python:<br><code>python -m pytest tests/test_app.py</code><br>(Python автоматично додає робочу папку в <code>sys.path</code>).</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="5-github-actions-workflow-ciyml">5. GitHub Actions Workflow (<code>ci.yml</code>)</h2>
+<ul>
+<li><strong>Матриця з 3 ОС:</strong>
+  <code>yaml
+  strategy:
+    fail-fast: false
+    matrix:
+      os: [ubuntu-latest, windows-latest, macos-latest]
+  runs-on: ${{ matrix.os }}</code></li>
+<li><strong>Чому <code>fail-fast: false</code> в CI:</strong> Якщо на Windows тест впаде, раннери Ubuntu та macOS продовжать роботу. Це дозволяє одразу бачити: помилка кросплатформна чи специфічна для конкретної ОС.</li>
+<li><strong>Розгалуження запуску:</strong></li>
+<li><code>if: runner.os != 'Windows'</code> $\rightarrow$ виконує <code>bash ./scripts/ci.sh</code></li>
+<li><code>if: runner.os == 'Windows'</code> $\rightarrow$ виконує <code>cmd .\scripts\ci.bat</code></li>
+<li><strong>Тригери:</strong> <code>push</code> у <code>develop</code> та <code>feature/*</code>, <code>pull_request</code> у <code>develop</code>.</li>
+</ul>
+<hr />
+<h2 id="6-gitignore">6. Що знаходиться в <code>.gitignore</code> і чому?</h2>
+<ul>
+<li><code>.venv/</code> — локальне віртуальне середовище (займає багато місця, прив'язане до конкретної ОС та абсолютних шляхів).</li>
+<li><code>__pycache__/</code> та <code>.pytest_cache/</code> — скомпільований байткод Python та кеш тестів.</li>
+<li>Тимчасові файли та логи. Секрети в репозиторій потрапляти не повинні.</li>
+</ul>
+<hr />
+<h2 id="7">7. Демонстрація на захисті (Покроково)</h2>
+<h3 id="1">Крок 1. Запуск робочого проєкту</h3>
+<p>У терміналі виконати:</p>
+<div class="codehilite"><pre><span></span><code>.\scripts\ci.bat
+</code></pre></div>
+
+<p><em>Результат:</em> Активується venv, оновлюється pip, проходять 3 тести (<code>3 passed in 0.01s</code>), друкується привітання та сума 5.</p>
+<h3 id="2-check">Крок 2. Перевірка цілісності (<code>check</code>)</h3>
+<div class="codehilite"><pre><span></span><code><span class="n">python</span> <span class="n">-c</span> <span class="s2">"import yaml; yaml.safe_load(open('.github/workflows/ci.yml'))"</span>
+<span class="n">python</span> <span class="n">-m</span> <span class="n">pytest</span> <span class="n">tests</span><span class="p">/</span><span class="n">test_app</span><span class="p">.</span><span class="n">py</span>
+</code></pre></div>
+
+<p><em>Результат:</em> Синтаксис YAML валідний, тести пройдені, жоден файл не змінено.</p>
+<h3 id="3">Крок 3. Реакція на НАВМИСНО ЗЛАМАНУ ПЕРЕВІРКУ <em>(Вимагає викладач!)</em></h3>
+<ol>
+<li>У файлі <code>tests/test_app.py</code> змінити:
+   <code>python
+   assert add(2, 3) == 999  # замість 5</code></li>
+<li>Запустити в терміналі:
+   <code>cmd
+   .\scripts\ci.bat</code></li>
+<li><strong>Що сказати викладачу:</strong><blockquote>
+<p><em>«Тест <code>test_add</code> провалився. Скрипт повернув код 1 і спрацював принцип Fail-Fast: рядок <code>python src/app.py</code> взагалі не викликався. Збірка аварійно зупинилася.»</em></p>
+</blockquote>
+</li>
+<li>Повернути <code>assert add(2, 3) == 5</code>.</li>
+</ol>
+</body>
+</html>

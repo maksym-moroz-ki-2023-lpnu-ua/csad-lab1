@@ -10,5 +10,6 @@ def test_get_greeting_custom_name() -> None:
 
 
 def test_add() -> None:
+    # assert add(2, 3) == 999  # РОЗКОМЕНТУЙ ДЛЯ ТЕСТУ ЗЛАМАНОЇ ПЕРЕВІРКИ
     assert add(2, 3) == 5
     assert add(-1, 1) == 0
