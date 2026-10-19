@@ -3,6 +3,7 @@ def get_greeting(name: str = "World") -> str:
 
 
 def add(a: int, b: int) -> int:
+    # return a + b + 1  # РОЗКОМЕНТУЙ ДЛЯ ТЕСТУ ЗЛАМАНОЇ ПЕРЕВІРКИ (тест впаде)
     return a + b
 
 
